@@ -1,0 +1,35 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+    		<meta charset="UTF-8">
+    		<title>Form</title>
+	</head>
+
+	<body>
+
+		<center>
+			{% if error %}
+				<p><h4>Error : {{error}}</h4></p>
+			{% endif %}
+				<form action="/">
+					<input type = 'submit' value = 'Back'>
+				</form>
+				<br>
+				<br>
+				</form>
+    			<form action = "/signin" method = "post">
+        			Enter Your Name
+     				<input type = 'text' name = 'username' required>
+				<br>
+				<br>
+        			Enter Your Password
+        			<input type = 'password' name = 'password' required>
+​				<br>
+				<br>
+      				<input type = 'submit' value = 'SignIn'>
+   			</form>
+​		</center>
+	</body>
+</html>

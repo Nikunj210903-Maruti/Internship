@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Search Inventory Items by category</title>
+</head>
+
+<body>
+<main>
+<center>
+     <form action="/" method="get">
+        <button>Back</button>
+    </form>
+    <br>
+    <hr>
+    <br>
+    <form>
+        <table>
+            <tr>
+                <td><input type="radio"  name="search_by" value="name" checked="true">Name</td>
+                <td><input type="radio"  name="search_by" value="category">Category</td>
+            </tr>
+            <tr>
+                <td>Credential:</td>
+                <td><input type="text" name="inventory_category" id="credential"></td>
+            </tr>
+             <tr>
+                <td>Timezone:</td>
+                <td><select id = "tz" name="timezone"></select></td>
+            </tr>
+            <tr>
+                <td>
+                    <button onclick =fun(event,document.getElementById("credential").value,document.getElementById("tz").value,document.getElementsByName("search_by"))>Search</button>
+                </td>
+            </tr>
+        </table>
+    </form>
+    <br>
+    <br>
+    <div id="data">
+    </div>
+ </center>
+
+<script>
+    var len ={{ timezones | length}}
+    var selectBox = document.getElementById("tz")
+</script>
+{%  for tz in timezones %}
+<script>
+        var op = {{tz | tojson}};
+        selectBox.options.add( new Option(op,op) );
+</script>
+{%  endfor %}
+
+</main>
+​
+<script>
+
+    function fun(e,credential,tz,search_by)
+    {
+        console.log(search_by)
+        if(search_by[0].checked){
+            search_by="name"
+        }
+        else
+        {
+            search_by="category"
+        }
+        e.preventDefault()
+        if(credential,search_by)
+        {
+            var formData = new FormData();
+            formData.append("credential",credential)
+            formData.append("timezone",tz)
+            formData.append("search_by",search_by)
+
+            var xhttp =new XMLHttpRequest();
+            xhttp.onreadystatechange = function(){
+                if(xhttp.readyState == 4 && this.status==200)
+                {
+                    data1 = xhttp.response
+                    console.log(data1)
+                    data = JSON.parse(data1)
+                    console.log(data)
+                    print_data(data)
+                }
+            }
+            xhttp.open("POST","/search")
+            xhttp.send(formData)
+        }
+        else{
+            document.getElementById("data").innerHTML = "<h2>All fields are required</h2>"
+         }
+    }
+
+    function print_data(data){
+        if(data.items.length>0)
+        {
+            document.getElementById("data").innerHTML = "<h2>Your data is here<br><br></h2><table border='1' id='search_result'><tr><th>Id</th><th>Name</th><th>Expiry_time</th><th>Image_path</th><th>Quantity</th><th>Category</th><th>Is_expired</th></tr>"
+            Object.keys(data.items).forEach(key=>{
+		        let row = "<tr><th>"+data.items[key].id+"</th><th>" +data.items[key].name + "</th><th>" +data.items[key].expiry_time+"</th><th>"+data.items[key].image+"</th><th>"+data.items[key].quantity+"</th><th>"+data.items[key].category+"</th><th>"+data.items[key].is_expired+"</th></tr>"
+		        var table_ref = document.getElementById("search_result")
+		        var new_row = table_ref.insertRow()
+		        new_row.innerHTML = row
+		        });
+        }
+		else
+		{
+		    document.getElementById("data").innerHTML = "<h2>" + data.error+"</h2>"
+		 }
+    }
+</script>
+
+​</body>
+</html>

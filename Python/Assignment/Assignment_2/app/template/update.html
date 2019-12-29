@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Update Item</title>
+</head>
+<body>
+
+<main>
+    <center>
+        <form action="/" method="get">
+            <button>Back</button>
+        </form>
+        <br>
+        <hr>
+        <br>
+​       <form>
+        <table>
+            <tr>
+                <td>Enter Inventory_Id :</td>
+                <td><input type="number" id="inventory_id"></td>
+            <tr>
+            <tr>
+                <td>Enter Quantity :</td>
+                 <td><input type="number" min="0"  id="quantity"></td>
+            <tr>
+            <tr>
+                <td></td>
+                <td><button onclick =fun(event,document.getElementById("inventory_id").value,document.getElementById("quantity").value)>Update</button></td>
+            <tr>
+        </table>
+        </form>
+        <br>
+        <br>
+        <div id="data">
+        </div>
+    </center>
+</main>
+
+<script>
+
+     function fun(e,id,quantity)
+     {
+        e.preventDefault()
+        if(id && quantity){
+            var formData = new FormData();
+            formData.append("inventory_id",id)
+            formData.append("quantity",quantity)
+
+            var xhttp =new XMLHttpRequest();
+            xhttp.onreadystatechange = function(){
+                if(xhttp.readyState == 4 && this.status==200)
+                {
+                    data1 = xhttp.response
+                    console.log(data1)
+                    data = JSON.parse(data1)
+                    console.log(data)
+                    print_data(data)
+                }
+            }
+            xhttp.open("PUT","/update")
+            xhttp.send(formData)
+        }
+        else{
+            document.getElementById("data").innerHTML = "<h2>All fields are required</h2>"
+        }
+    }
+
+    function print_data(data){
+        if(data.message)
+        {
+            document.getElementById("data").innerHTML = "<h2>" + data.message+"</h2>"
+        }
+        else
+        {
+    		document.getElementById("data").innerHTML = "<h2>" + data.error+"</h2>"
+        }
+    }
+
+</script>​
+</body>
+</html>
+
+
+
+

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Inventory Items</title>
+</head>
+<body>
+<main>
+<center>
+    <form action="/" method="get">
+        <button>Back</button>
+    </form>
+    <br>
+    <hr>
+    <br>
+    <form id="my-form" enctype="multipart/form-data">
+        <table>
+            <tr>
+                <td>Inventory_Name:</td>
+                <td><input type="text" id="name" required></td>
+            </tr>
+            <tr>
+                <td>Inventory_Category:</td>
+                <td><input type="text" id="category" required></td>
+            </tr>
+            <tr>
+                <td>Expiry_Time:</td>
+                <td><input type="datetime-local" id="e_time" required></td>
+            </tr>
+            <tr>
+                <td>Quantity:</td>
+                <td><input type="number" id="quantity" min="0" required></td>
+            </tr>
+            <tr>
+                <td>Manufacturing_Time:</td>
+                <td><input type="datetime-local" id="m_time" required></td>
+            </tr>
+             <tr>
+                <td>Upload Image Here:</td>
+                 <td><input type="file" id="photo" required></td>
+            </tr>
+        </table>
+        <br>
+        <br>
+        <button onclick =fun(event,document.getElementById("name").value,document.getElementById("category").value,document.getElementById("photo"),document.getElementById("quantity").value,document.getElementById("e_time").value,document.getElementById("m_time").value)>Insert</button>
+    </form>
+    <br>
+    <br>
+    <div id="data"></div>
+</center>
+</main>
+
+<script>
+     function fun(e,name,category,photo,quantity,e_time,m_time)
+    {
+        if(name && category && quantity && e_time && m_time && photo.files[0])
+        {
+            e.preventDefault()
+            var formData = new FormData();
+            formData.append("name",name)
+            formData.append("category",category)
+            formData.append("photo",photo.files[0])
+            formData.append("quantity",quantity)
+            formData.append("e_time",e_time)
+            formData.append("m_time",m_time)
+
+            var xhttp =new XMLHttpRequest();
+            xhttp.onreadystatechange = function(){
+                if(xhttp.readyState == 4 && this.status==200)
+                {
+                    data1 = xhttp.response
+                    console.log(data1)
+                    data = JSON.parse(data1)
+                    console.log(data)
+                    print_data(data)
+                }
+            }
+            xhttp.open("POST","/insert")
+            xhttp.send(formData)
+        }
+        else
+        {
+          document.getElementById("data").innerHTML = "<h2>All fields are required</h2>"
+        }
+    }
+
+    function print_data(data){
+        if(data.message)
+        {
+            document.getElementById("data").innerHTML = "<h2>" + data.message+"</h2>"
+        }
+        else
+        {
+    	    document.getElementById("data").innerHTML = "<h2>" + data.error+"</h2>"
+        }
+        reset()
+    }
+
+    function reset()
+    {
+        document.getElementById("my-form").reset();
+    }
+</script>​
+
+
+</body>
+</html>

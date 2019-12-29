@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Assignment_1</title>
+		<script src="/assignment_1.js" type="module"></script>
+		
+
+	</head>
+
+	<body>
+		<center>
+			<div id="data">	
+				<form>
+					<table>
+					<tr>
+					<td><lable>Name</lable></td>
+					<td><input type="text" id='name'></td>
+					</tr>
+					<tr>
+					<td><lable>Maths_marks</lable></td>
+					<td><input type="number" id='maths_marks'></td>
+					</tr>
+					<tr>
+					<td><lable>Science_marks</lable></td>
+					<td><input type="number" id='science_marks'></td>
+					</tr>
+					<tr>
+					<td><button onclick=student_add(event)>Continue</button></td>
+					<td><button onclick=student_submit(event)>Submit</button></td>
+					</tr>
+					</table>
+				</form>
+			</div>
+			<br>
+			<div id="error-msg">
+			</div>
+		</center>
+	</body>
+</html>
+
+

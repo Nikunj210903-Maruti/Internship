@@ -1,0 +1,92 @@
+<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+<script>
+	cart={}
+	function fun(item,price)
+	{
+		var myTable = document.getElementById("items");
+		var rowCount = myTable.rows.length;
+		for (var x=rowCount-1; x>0; x--) 
+		{
+   			myTable.deleteRow(x);
+		}
+		cart[item]=[price,document.getElementById(item).value]
+		console.log(cart)
+
+		
+		Object.keys(cart).forEach(key=>{
+		var total=new String(parseInt(cart[key][1])*parseInt(cart[key][0]))
+		row = `<tr><td>${key}</td><td>${cart[key][1]}</td><td>${total}</td></tr>`
+		$("#items tr:last").after(row)
+		});
+		
+	}
+	function new_order()
+	{
+console.log("hello")
+		 document.getElementById('display').innerHTML = "Your Order is placed successfullty!!<br><br><button onclick=restore()>Order Again</button>";	
+	}
+function restore()
+{
+document.getElementById('display').innerHTML = "Your Total Items<br><br><table border=1 id='items'><tr><th>Name</th><th>Quantity</th><th>Price</th></tr></table><br><br><button onclick = new_order()>Buy</button>"
+
+}
+</script>
+
+<html>
+	<body>
+		<center>
+			<h1>Main Application</h1>	
+			<form action="/signout" method="get">
+				<button>SignOut</button>
+			</form>
+			<br>
+		</center>
+		<table width="100%">
+			<tr>
+			<th align="center">
+			<h1>Hello {{data.username}}</h1>
+			<h2>Main Menu</h2>
+			<table border=1>
+				<tr>
+					<th>Name</th>
+					<th>Price</th>
+					<th>Quantity</th>
+					<th>Action</th>
+					
+				</tr>
+				{% for i in data.menu %}
+				<tr>
+					<td>{{i.Name}}</td>
+					<td>{{i.Price}}</td>
+					<td><input type="number" min=0 id={{ i.Name | tojson}}></td>
+					<td><button onclick = fun({{ i.Name | tojson }},{{ i.Price | tojson }})>Add</button></td>
+				</tr>
+				{% endfor %}
+			</table>
+			</th>
+			<th align="center">
+				<div id="display">
+				Your Total Items
+<br>
+<br>
+				
+				<table border=1 id='items'>
+				<tr>
+					<th>Name</th>
+					<th>Quantity</th>
+					<th>Price</th>
+				</tr>
+				</table>
+				<br>
+				<br>
+				<button onclick = new_order()>Buy</button>
+
+				</div>
+				
+			</th>
+			</tr>
+		</table>
+	</body>
+</html>
+
+

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Delete Items</title>
+     <script type="text/javascript">
+        var arr=[]
+        var another_arr=[]
+    </script>
+</head>
+
+<body>
+<main>
+    <center>
+     <form action="/" method="get">
+         <button>Back</button>
+     </form>
+     <br>
+     <hr>
+     <br>
+     <form id="my-form">
+        <div id="container"></div>
+        <input type="hidden" name="total" id="total">
+        <br>
+        <hr>
+        <br>
+        <button onclick=fun(event)>Delete</button>
+    </form>
+
+    {% for i in data %}
+    <script>
+        var br = document.createElement('br');
+        var checkbox = document.createElement('input');
+        checkbox.type = "checkbox";
+        checkbox.id = {{i.id}};
+        checkbox.value = "value";
+        arr.push({{i.id}})
+
+        var label = document.createElement('label')
+        label.htmlFor = "id";
+        label.appendChild(document.createTextNode({{i.id}}));
+
+        container.appendChild(checkbox);
+        container.appendChild(label);
+        container.appendChild(br);
+        container.appendChild(br);
+    </script>
+    {% endfor %}
+
+    <br>
+    <br>
+    <div id="data"></div>
+    </center>
+</main>
+
+<script>
+     function fun(e)
+     {
+        e.preventDefault()
+        var formData=new FormData()
+        formData.append("total",JSON.stringify(arr))
+        var elements = document.getElementById("my-form").elements;
+        var flag=0
+        for (var i = 0, element; element = elements[i++];) {
+            if (element.type === "checkbox")
+            {
+                if(element.checked==true)
+                {
+                    formData.append(element.id,element.id)
+                    flag=1
+                }
+                else
+                {
+                     another_arr.push(element.id)
+                }
+            }
+         }
+
+        if(flag==1)
+        {
+            var xhttp =new XMLHttpRequest();
+            xhttp.onreadystatechange = function(){
+                if(xhttp.readyState == 4 && this.status==200)
+                {
+                    data1 = xhttp.response
+                    console.log(data1)
+                    data = JSON.parse(data1)
+                    console.log(data)
+                    print_data(data)
+                }
+            }
+            xhttp.open("DELETE","/delete")
+            console.log(formData)
+            xhttp.send(formData)
+        }
+        else
+        {
+            another_arr=[]
+            document.getElementById("data").innerHTML = "<h2>Please Check atleast one checkbox</h2>"
+        }
+    }
+
+    function print_data(data){
+        if(data.message)
+        {
+            document.getElementById("data").innerHTML = "<h2>" + data.message+"</h2>"
+        }
+        else
+        {
+            document.getElementById("data").innerHTML = "<h2>" + data.error+"</h2>"
+        }
+        reset()
+    }
+
+    function reset()
+    {
+        arr=[]
+        console.log(another_arr)
+        container.innerHTML=""
+        for(i=0;i<another_arr.length;i++){
+            var br = document.createElement('br');
+            var checkbox = document.createElement('input');
+            checkbox.type = "checkbox";
+            checkbox.id = another_arr[i].toString();
+            checkbox.value = "value";
+            arr.push(i.toString())
+
+            var label = document.createElement('label')
+            label.htmlFor = "id";
+            label.appendChild(document.createTextNode(another_arr[i]));
+
+            container.appendChild(checkbox);
+            container.appendChild(label);
+            container.appendChild(br);
+            container.appendChild(br);
+        }
+    another_arr=[]
+    }
+</script>​
+</body>
+</html>

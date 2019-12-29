@@ -1,0 +1,115 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "description": "Inventory_Management_System_Swagger_UI",
+    "version": "1.0.0",
+    "title": "Inventory_Management_System"
+  },
+  "servers": [
+    {
+      "url": "/"
+    }
+  ],
+  "tags": [
+    {
+      "name": "Inventory Request",
+      "description": "Example API for inserting , updating , deleting and searching inventory"
+    }
+  ],
+  "paths": {
+    "/": {
+      "get": {
+        "tags": [
+          "Index Page"
+        ],
+        "summary": "Returns Index Page",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/insert_page": {
+      "get": {
+        "tags": [
+          "Insert Page"
+        ],
+        "summary": "Returns Index Page",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+     "/update_page": {
+      "get": {
+        "tags": [
+          "Update Page"
+        ],
+        "summary": "Returns Index Page",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+     "/delete_page": {
+      "get": {
+        "tags": [
+          "Delete Page"
+        ],
+        "summary": "Returns Index Page",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+     "/search_page": {
+      "get": {
+        "tags": [
+          "Search Page"
+        ],
+        "summary": "Returns Index Page",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/update": {
+      "put": {
+        "tags": [
+          "Update Quantity of Inventory"
+        ],
+        "summary": "Get book request with given ID",
+        "consumes": "application/x-www-form-urlencoded",
+        "produces" : "application-json",
+        "parameters": [
+          {
+            "name": "inventory_id",
+            "in": "formData",
+            "description": "Id of Inventory",
+            "type": "string"
+          },
+          {
+            "name": "quantity",
+            "in": "formData",
+            "description": "Quantity of Inventory",
+            "type": "number"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    }
+  }
+}

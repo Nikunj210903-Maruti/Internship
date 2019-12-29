@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="d68e34b6-1cf5-43c4-aae6-9028de7967e1" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../../../Assignment/A1/cleaned.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Assignment/A1/f1.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Assignment/A2/f1.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Assignment/A2/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Assignment/A2/template/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Programms/All_advanced_topic_project/server.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Programms/All_advanced_topic_project/static/images/Kunj.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Programms/All_advanced_topic_project/static/images/Nikunj.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Programms/All_advanced_topic_project/template/dashboard.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Programms/All_advanced_topic_project/template/error.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Programms/All_advanced_topic_project/template/errror.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Programms/All_advanced_topic_project/template/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Programms/All_advanced_topic_project/template/signin.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Programms/All_advanced_topic_project/template/signup.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Programms/all_advanced_topic_proejct.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Programms/clouser.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Programms/comprehension.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Programms/datetime_practical.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Programms/dateutil_practical.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Programms/decorator.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Programms/exception.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Programms/file.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Programms/flask_practical.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Programms/function_invoke_in_dict.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Programms/generator_list.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Programms/introspection.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Programms/lambda_practical.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Programms/logging_practical.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Programms/multiple_function_arguments.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Programms/mysql_practical.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Programms/partial_function.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Programms/regular-expression.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Programms/serialization.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Programms/tearnary_operator.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Programms/template/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Programms/url_redirect.py" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../../.." />
+  </component>
+  <component name="ProjectId" id="1VYko0YF2wsEh4WxQSvOzpI2LAl" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Online_Tiffin_Services_without_RESTAPI_2" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+  </component>
+  <component name="RunManager">
+    <configuration name="server" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="Online_Tiffin_Services_without_RESTAPI_1" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/server.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.server" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="d68e34b6-1cf5-43c4-aae6-9028de7967e1" name="Default Changelist" comment="" />
+      <created>1577437586807</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1577437586807</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="620" y="207" key="FileChooserDialogImpl" timestamp="1577437752868">
+      <screen x="65" y="24" width="1535" height="876" />
+    </state>
+    <state x="620" y="207" key="FileChooserDialogImpl/65.24.1535.876@65.24.1535.876" timestamp="1577437752868" />
+    <state width="1512" height="229" key="GridCell.Tab.0.bottom" timestamp="1577437756001">
+      <screen x="65" y="24" width="1535" height="876" />
+    </state>
+    <state width="1512" height="229" key="GridCell.Tab.0.bottom/65.24.1535.876@65.24.1535.876" timestamp="1577437756001" />
+    <state width="1512" height="229" key="GridCell.Tab.0.center" timestamp="1577437756001">
+      <screen x="65" y="24" width="1535" height="876" />
+    </state>
+    <state width="1512" height="229" key="GridCell.Tab.0.center/65.24.1535.876@65.24.1535.876" timestamp="1577437756001" />
+    <state width="1512" height="229" key="GridCell.Tab.0.left" timestamp="1577437756000">
+      <screen x="65" y="24" width="1535" height="876" />
+    </state>
+    <state width="1512" height="229" key="GridCell.Tab.0.left/65.24.1535.876@65.24.1535.876" timestamp="1577437756000" />
+    <state width="1512" height="229" key="GridCell.Tab.0.right" timestamp="1577437756001">
+      <screen x="65" y="24" width="1535" height="876" />
+    </state>
+    <state width="1512" height="229" key="GridCell.Tab.0.right/65.24.1535.876@65.24.1535.876" timestamp="1577437756001" />
+    <state x="326" y="84" key="SettingsEditor" timestamp="1577437647369">
+      <screen x="65" y="24" width="1535" height="876" />
+    </state>
+    <state x="326" y="84" key="SettingsEditor/65.24.1535.876@65.24.1535.876" timestamp="1577437647369" />
+  </component>
+</project>

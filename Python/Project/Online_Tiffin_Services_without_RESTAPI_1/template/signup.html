@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+    		<meta charset="UTF-8">
+    		<title>Form</title>
+	</head>
+	<body>
+		<center>
+			{% if error %}
+				<p><h4>Error : {{error}}</h4></p>
+			{% endif %}
+    			<form action = "/signup" method = "post" enctype="multipart/form-data">
+				<table>
+				<tr>
+    					<td>Enter Your Name</td>
+   					<td>  <input type = 'text' name = 'username' required></td>
+				</tr>
+				<br>
+				<tr>
+					<td>Enter Your Email</td>
+     					<td><input type = 'email' name = 'email' required></td>
+				</tr>
+				<br>
+				<tr>
+    					<td>    Enter Your Password</td>
+        				<td><input type = 'password' name = 'password' required></td>
+​				</tr>
+				<br>
+				<tr>
+				<td>Upload your photo</td>
+				<td><input type="file" value="upload your photo" name="photo"></td>
+				</tr>
+				<br>
+				<br>
+				<tr>
+      					<td><input type = 'submit' value = 'SignUp'></td>
+				</tr>
+				</table>   
+			</form>
+​		</center>
+	</body>
+</html>
