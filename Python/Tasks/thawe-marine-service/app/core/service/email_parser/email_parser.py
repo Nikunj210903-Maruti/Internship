@@ -5,6 +5,7 @@ import json
 from flask import current_app
 from imapclient import IMAPClient
 
+from app import app
 from ...models import MysqlDatabaseHandler, get_all_eid, insert_many_eid, get_vessel_id, insert_into_vessel_noon_report, \
     get_noon_report_base_parameter
 from ....common import FOLDER_SELECT, get_utc_timestamp, InvalidEmailData
@@ -22,13 +23,20 @@ class EmailParserService:
     def read_emails(self):
         if self.message.mail:
             self.search_emails(None, "ALL")
+            app.logger.info("All email_ids searched from INBOX")
             self.get_unread_eids()
+            app.logger.info("Got all unread email_ids")
+            app.logger.info("unread email_ids : {unread_email_ids}".format(unread_email_ids=self.message.unread_eids))
             self.fetch_emails()
+            app.logger.info("All unread Emails are fetched")
             filter_email = self.FilterEmail(self.message)
             filter_email.filter_email()
+            app.logger.info("Email are filtered based on subject name and attachment type and attachments are downloaded")
             extract_data_from_file = self.ExtractDataFromFile(self.message)
             extract_data_from_file.extract_data_from_file()
+            app.logger.info("Data are extracted from downloaded attachment files")
             self.inset_noon_report()
+            app.logger.info("Data about vessel_noon_report are inserted into database")
 
     def get_initial_data(self):
         with MysqlDatabaseHandler() as conn:
@@ -37,8 +45,9 @@ class EmailParserService:
             if self.message.rows_eid:
                 for row in self.message.rows_eid:
                     self.message.already_read_ids.append(row['e_id'])
-
+            app.logger.info("Data about already read email_ids are fetched from database")
             get_noon_report_base_parameter(conn, self.message)
+            app.logger.info("Data about noon_report_base_parameters are fetched from database")
             self.message.parameter_dict = {}
             for parameter in self.message.rows_noon_report_base_parameters:
                 self.message.parameter_dict[parameter['type']] = json.loads(parameter["params"])
@@ -49,8 +58,11 @@ class EmailParserService:
             self.message.mail = imaplib.IMAP4_SSL(current_app.config['GOOGLE_IMAP_SERVER'])
             self.message.mail.login(current_app.config['USER'], current_app.config['PASSWORD'])
             self.message.mail.select(FOLDER_SELECT)
+            app.logger.info("All configuration for Email Parsing is done.")
             self.get_initial_data()
+            app.logger.info("All already read email_ids are fetched from database")
         except IMAPClient.Error:
+            app.logger.error("Email_address or Password or ServerUrl is wrong")
             self.message.mail = None
             raise InvalidEmailData
 
